@@ -1,4 +1,4 @@
-package co.edu.poli.blogrs.controller;
+package co.edu.poli_blogrs.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.poli.blogrs.models.AuthenticationRequest;
-import co.edu.poli.blogrs.models.AuthenticationResponse;
-import co.edu.poli.blogrs.models.UserModel;
-import co.edu.poli.blogrs.repository.UserRepository;
+import co.edu.poli_blogrs.models.AuthenticationRequest;
+import co.edu.poli_blogrs.models.AuthenticationResponse;
+import co.edu.poli_blogrs.models.UserModel;
+import co.edu.poli_blogrs.repository.UserRepository;
 
 @RestController
 public class AuthController {

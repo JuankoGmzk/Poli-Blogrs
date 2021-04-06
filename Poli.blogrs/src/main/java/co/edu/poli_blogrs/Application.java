@@ -1,4 +1,4 @@
-package co.edu.poli.blogrs;
+package co.edu.poli_blogrs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package co.edu.poli.configuration;
+package co.edu.poli_blogrs.configuration;
 
 import java.beans.BeanProperty;
 
@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import co.edu.poli.services.UserService;
+import co.edu.poli_blogrs.services.UserService;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
