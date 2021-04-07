@@ -20,13 +20,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private UserService userService;
 
-	/*@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userService);*/
-	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.parentAuthenticationManager(authenticationManagerBean()).userDetailsService(userService);
+		auth.userDetailsService(userService);
+	
+	/*@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.parentAuthenticationManager(authenticationManagerBean()).userDetailsService(userService);*/
 	}
 	
 	@Override
@@ -34,13 +34,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.csrf().disable().authorizeRequests().antMatchers("/register","/login").permitAll().anyRequest().authenticated();
 	}
 	
+	@Bean
 	public PasswordEncoder passwordEnconder() {
 		return NoOpPasswordEncoder.getInstance();
 		
 	}
 	@Override
 	@Bean
-	public AuthenticationManager authenticationManager() throws Exception {
+	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 	

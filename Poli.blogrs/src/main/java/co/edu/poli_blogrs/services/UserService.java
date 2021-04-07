@@ -1,5 +1,7 @@
 package co.edu.poli_blogrs.services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +26,7 @@ public class UserService implements UserDetailsService{
 			return null;
 		String icd = foundedUser.getInstCode();
 		String pwd = foundedUser.getPassword();
-		return new User(icd, pwd, null);
+		return new User(icd, pwd, new ArrayList<>());
 	}
 	
 	

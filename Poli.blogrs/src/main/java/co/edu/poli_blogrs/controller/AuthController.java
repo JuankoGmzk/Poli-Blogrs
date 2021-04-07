@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import co.edu.poli_blogrs.models.AuthenticationRequest;
 import co.edu.poli_blogrs.models.AuthenticationResponse;
@@ -28,15 +29,19 @@ public class AuthController {
 	@PostMapping("/register")
 	private ResponseEntity<?> registerClient(@RequestBody AuthenticationRequest autheticationRequest){
 		
+		String username = autheticationRequest.getUsername();
+		String email = autheticationRequest.getEmail();
 		String instcode = autheticationRequest.getInstCode();
 		String password = autheticationRequest.getPassword();
 		UserModel userModel = new UserModel();
+		userModel.setUsername(username);
+		userModel.setEmail(email);
 		userModel.setInstCode(instcode);
 		userModel.setPassword(password);
 		try {
 			userRepository.save(userModel);
 		} catch (Exception e) {
-			return ResponseEntity.ok(new AuthenticationResponse("Ha ocurrido un error relacionado a este codigo: " + instcode));
+			return ResponseEntity.ok(new AuthenticationResponse("Error, revise la información y vuelva a intentarlo"));
 		}
 		
 		return ResponseEntity.ok(new AuthenticationResponse("Se ha resgistrado correctamente con el codigo institucional: " + instcode));
@@ -51,8 +56,8 @@ public class AuthController {
 		String password = autheticationRequest.getPassword();
 		try {
 			authenticationmanager.authenticate(new UsernamePasswordAuthenticationToken(instcode, password));
-		} catch (BadCredentialsException e) {
-			return ResponseEntity.ok(new AuthenticationResponse("No se a podido completar el logueo con este codigo: " + instcode));
+		} catch (Exception e) {
+			return ResponseEntity.ok(new AuthenticationResponse("Error, revise la información y vuelva a intentarlo"));
 		}			
 		return ResponseEntity.ok(new AuthenticationResponse("Se ha logueado correctamente con el codigo institucional: " + instcode));
 	}
