@@ -1,4 +1,4 @@
-package co.edu.poli.blogrs.models;
+package co.edu.poli_blogrs.models;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
