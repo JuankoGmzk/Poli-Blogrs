@@ -50,15 +50,15 @@ public class AuthController {
 	
 	
 	@PostMapping("/login")
-	private ResponseEntity<?> logedClient(@RequestBody AuthenticationRequest autheticationRequest){
+	private ResponseEntity<?> authenticateClient(@RequestBody AuthenticationRequest autheticationRequest){
 		
-		String instcode = autheticationRequest.getInstCode();
-		String password = autheticationRequest.getPassword();
+		String icd = autheticationRequest.getInstCode();
+		String psw = autheticationRequest.getPassword();
 		try {
-			authenticationmanager.authenticate(new UsernamePasswordAuthenticationToken(instcode, password));
+			authenticationmanager.authenticate(new UsernamePasswordAuthenticationToken(icd,psw));
 		} catch (Exception e) {
 			return ResponseEntity.ok(new AuthenticationResponse("Error, revise la información y vuelva a intentarlo"));
 		}			
-		return ResponseEntity.ok(new AuthenticationResponse("Se ha logueado correctamente con el codigo institucional: " + instcode));
+		return ResponseEntity.ok(new AuthenticationResponse("Se ha logueado correctamente con el codigo institucional: " + icd));
 	}
 }
