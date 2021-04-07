@@ -16,6 +16,8 @@ import co.edu.poli.blogrs.models.AuthenticationResponse;
 import co.edu.poli.blogrs.models.UserModel;
 import co.edu.poli.blogrs.repository.UserRepository;
 
+
+// Juan Pablo Bernal
 @RestController
 public class AuthController {
 	
