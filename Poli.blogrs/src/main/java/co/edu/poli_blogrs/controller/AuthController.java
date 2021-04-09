@@ -45,7 +45,6 @@ public class AuthController {
 		}
 		
 		return ResponseEntity.ok(new AuthenticationResponse("Se ha resgistrado correctamente con el codigo institucional: " + instcode));
-		
 	}
 	
 	
