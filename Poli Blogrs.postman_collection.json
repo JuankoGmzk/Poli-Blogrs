@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "7d7510a8-1cfe-400a-b5fa-ae517fb64821",
+		"name": "Poli Blogrs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ver Noticias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/PB/View",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PB",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Noticia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Madiel Lara\",\r\n    \"date\": \"01/02/2021\",\r\n    \"title\": \"Alta\",\r\n    \"body\": \"Y que la musica ta' Alta,Alta,Alta,Alta,Alta,Alta,Alta,Alta,Alta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/PB/Create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PB",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Noticia",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Miguel Angel Garcia\",\r\n    \"date\": \"12/04/2021\",\r\n    \"title\": \"A tú manera\",\r\n    \"body\": \"Sentirte aqui porque tu precensia me calma. Me perdonas si me creo un inocente. Tu Brillas en el valle. Dicen que tú eres como el aire, yo se que tu.. tienes la llave...\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/PB/Edit/6074ae5cc12ada1b8755c4f8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PB",
+						"Edit",
+						"6074ae5cc12ada1b8755c4f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Noticia",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/PB/Delete/6074b0b5c12ada1b8755c4fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PB",
+						"Delete",
+						"6074b0b5c12ada1b8755c4fb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
