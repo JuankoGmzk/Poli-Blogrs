@@ -19,6 +19,7 @@ import co.edu.poli.mongodb.repository.UserRepository;
 @RequestMapping("/PB/Users")
 public class UserController {
 
+	
 	@Autowired
 	UserRepository userRepository;
 	
